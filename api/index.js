@@ -48,6 +48,7 @@ app.delete("/api/delete-transactions", async(req, res) => {
     try {
         await mongoose.connect(process.env.MONGO_URL);
         await Transaction.deleteMany({});
+        res.json("OK");
     }catch(error){
         res.status(500).json({error: "Failed to delete transactions"})
     }

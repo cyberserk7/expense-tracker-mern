@@ -25,10 +25,11 @@ function TransactionsPage() {
     }).then((res) => {
       if(res.ok) {
         toast.success("Transaction history deleted")
+        setTransactions([]);
       }else{
         toast.error("Failed to delete transaction history")
       }
-    }).finally(setTransactions([]));
+    });
   }
 
   return (
@@ -43,7 +44,7 @@ function TransactionsPage() {
           </Link>
           <div className='w-full flex justify-between items-center'>
             <h1 className='text-lg font-semibold'>Transaction History</h1>
-            <button className='text-xs font-bold px-3 py-2 rounded-lg bg-white text-zinc-600 border border-zinc-300/30' onClick={onDelete}>
+            <button className={`text-xs font-bold px-3 py-2 rounded-lg bg-white text-zinc-600 border border-zinc-300/30 ${transactions.length === 0 && "cursor-not-allowed"}`} onClick={onDelete} disabled={transactions.length === 0} >
               Clear History
             </button>
           </div>

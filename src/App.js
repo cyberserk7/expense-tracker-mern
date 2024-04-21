@@ -58,7 +58,6 @@ function HomePage() {
           <div className=''>
             <h1 className='text-center font-medium'>Total Balance</h1>
             <h1 className='text-5xl md:text-4xl text-center font-extrabold'>$
-              {totalbalance < 0 && "-"}
               {totalbalance}
             </h1>
           </div>
